@@ -57,13 +57,13 @@ function modal() {
   }
 
 
-  /*       let timerId = setTimeout(fun, 60000);
+  let timerId = setTimeout(fun, 60000);
 
-        function fun() {
-          popup.style.display = 'flex';
-          document.body.style.overflow = 'hidden';
-          clearTimeout(timerId);
-        } */
+  function fun() {
+    popup.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    clearTimeout(timerId);
+  }
 
 
 }
