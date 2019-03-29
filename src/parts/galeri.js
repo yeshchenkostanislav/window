@@ -14,7 +14,7 @@ function galeri() {
 
       let attribute = a[i].getAttribute("href");
       let modalWin = document.createElement('img');
-      modalWin.id = 'modalwin';
+      modalWin.classList.add('modalwin');
       modalWin.setAttribute('src', attribute);
       fotoWrap.appendChild(modalWin);
 

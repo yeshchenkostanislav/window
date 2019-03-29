@@ -13,7 +13,7 @@ body {
   color: #000000;
 }
 
-#modalwin {
+.modalwin {
   top: 5%;
   right: 0;
   left: 0;
