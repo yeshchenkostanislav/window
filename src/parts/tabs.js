@@ -15,9 +15,8 @@ function tabs() {
 
   // табы в мод окне
   let info3 = document.querySelector('.balcon_icons'),
-    tabImg3 = info3.querySelectorAll('img'),
+    tabImg3 = info3.querySelectorAll('.type_img'),
     tabContent3 = document.querySelectorAll('.big_img-item');
-
 
   function hideTabContent(a, b) {
     for (let i = a; i < b.length; i++) {
@@ -33,6 +32,7 @@ function tabs() {
   hideTabContent(1, tabContent);
   hideTabContent(1, tabContent2);
   hideTabContent(1, tabContent3);
+
 
   function showTabContent(b, c) {
     if (c[b].classList.contains('hide')) {
@@ -75,25 +75,48 @@ function tabs() {
   wrap(info3);
 
 
-  for (let i = 0; i < decorationDiv.length; i++) {
-    decorationDiv[0].classList.add('after_click');
-    tabText2[1].addEventListener('click', () => {
-      decorationDiv[i].classList.remove('after_click');
-      decorationDiv[1].classList.add('after_click');
-    });
-    tabText2[2].addEventListener('click', () => {
-      decorationDiv[i].classList.remove('after_click');
-      decorationDiv[2].classList.add('after_click');
-    });
-    tabText2[3].addEventListener('click', () => {
-      decorationDiv[i].classList.remove('after_click');
-      decorationDiv[3].classList.add('after_click');
-    });
-    tabText2[0].addEventListener('click', () => {
-      decorationDiv[i].classList.remove('after_click');
-      decorationDiv[0].classList.add('after_click');
-    });
+
+  //табы, изменение стиля родителя
+  let slideIndex = 1;
+  showSlides(slideIndex);
+
+  function showSlides(slideIndex) {
+    tabText2.forEach((item) => item.parentNode.classList.remove('after_click'));
+    tabText2[slideIndex - 1].parentNode.classList.add('after_click');
   }
+  info2.addEventListener('click', function (event) {
+    for (let i = 0; i < tabText2.length + 1; i++) {
+      if (event.target.classList.contains('decoration_slider-link') && event.target == tabText2[i - 1]) {
+        showSlides(i);
+      }
+    }
+  });
+
+  //калькулятор, увеличение кртинок при клике
+  let imgIndex = 1;
+  activeImg(imgIndex);
+
+  function activeImg(imgIndex) {
+    tabImg3.forEach((item) => item.classList.remove('do_image_more'));
+    tabImg3[imgIndex - 1].classList.add('do_image_more');
+  }
+  info3.addEventListener('click', function (event) {
+    for (let i = 0; i < tabImg3.length + 1; i++) {
+      if (event.target.classList.contains('type_img') && event.target == tabImg3[i - 1]) {
+        activeImg(i);
+      }
+    }
+  });
+
+
+
+
+
+
+
+
+
+
 
 
 }

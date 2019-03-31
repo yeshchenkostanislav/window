@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  mode: "production",
+  mode: "development",
   watch: true,
 
   context: path.resolve(__dirname, 'src'),
@@ -11,22 +11,23 @@ module.exports = {
     filename: 'main.js'
   },
   module: {
-    rules: [
-      { test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-           loader: 'babel-loader',
-           options: {
-                presets: [
-                  ["@babel/preset-env",
-                      {
-                      "targets": {
-                          "browsers": ['last 2 versions', 'ie >= 11']
-                          }
-                      }]
-                ]
-           }
-        } 
-      }]
+    rules: [{
+      test: /\.js$/,
+      exclude: /node_modules/,
+      use: {
+        loader: 'babel-loader',
+        options: {
+          presets: [
+            ["@babel/preset-env",
+              {
+                "targets": {
+                  "browsers": ['last 2 versions', 'ie >= 11']
+                }
+              }
+            ]
+          ]
+        }
+      }
+    }]
   }
 };
