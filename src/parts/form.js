@@ -10,13 +10,21 @@
 
     let form = document.querySelectorAll('form'),
       input = document.querySelectorAll('input'),
-      inputTel = document.getElementsByName('user_phone'),
+      inputTel = document.querySelectorAll('.user_phone'),
       inputForm = document.querySelectorAll('.form-control_calc'),
       checkbox = document.querySelectorAll('.checkbox'),
       popupCalcEnd = document.querySelector('.popup_calc_end'),
       overlay = document.querySelector('.popup_engineer'),
       popup = document.querySelector('.popup'),
       statusMessage = document.createElement('div');
+
+    //полифилл для forEach
+    (function () {
+      if (typeof NodeList.prototype.forEach === "function")
+        return false;
+      else
+        NodeList.prototype.forEach = Array.prototype.forEach;
+    })();
 
     // собираю данные с форм в один обьект
 

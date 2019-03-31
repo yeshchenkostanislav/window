@@ -1,9 +1,8 @@
 function timer() {
-
-  let deadline = '2019-04-5';
+  let deadline = Date.UTC(2019, 3, 4);
 
   function getTimeRemaining(endtime) {
-    let t = Date.parse(endtime) - Date.parse(new Date()),
+    let t = endtime - new Date(),
       seconds = Math.floor((t / 1000) % 60),
       minutes = Math.floor((t / 1000 / 60) % 60),
       hours = Math.floor((t / 1000 / 60 / 60) % 24),
@@ -53,3 +52,28 @@ function timer() {
 }
 
 module.exports = timer;
+
+
+
+
+/*   (function () {
+    // Setup all the variables needed
+
+    let days = document.getElementById('days'),
+      hours = document.getElementById('hours'),
+      minutes = document.getElementById('minutes'),
+      seconds = document.getElementById('seconds');
+    var target = Date.UTC(2019, 5, 17, 8);
+
+    setInterval(function () {
+      var now = new Date();
+      var d = target - now;
+
+      // Get number of weeks until event
+      days.innerHTML = Math.floor((d / (1000 * 60 * 60 * 24)));
+      hours.innerHTML = Math.floor((d / 1000 / 60 / 60) % 24);
+      minutes.innerHTML = Math.floor((d / 1000 / 60) % 60);
+      seconds.innerHTML = Math.floor((d / 1000) % 60);
+
+    }, 1000);
+  }()); */

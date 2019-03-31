@@ -18,11 +18,16 @@
   },
   "homepage": "https://github.com/yeshchenkostanislav/yoga#readme",
   "devDependencies": {
+    "@babel/cli": "^7.2.3",
     "@babel/core": "^7.4.0",
     "@babel/preset-env": "^7.4.2",
     "babel-loader": "^8.0.5",
     "browserify": "^16.2.3",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.4.0",
+    "core-js": "^2.6.5"
   }
 }
