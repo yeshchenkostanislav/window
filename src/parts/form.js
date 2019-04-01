@@ -131,6 +131,16 @@
           .then(() => {
             statusMessage.innerHTML = message.success;
             setTimeout(func, 3000);
+            formCalc = {
+              name: '',
+              tel: '',
+              balcony: 'Тип1',
+              width: '',
+              height: '',
+              type: 'Деревянное остекление',
+              checkbox: ''
+            };
+            console.log(formCalc);
           })
           .catch(() => {
             statusMessage.innerHTML = message.failure;
@@ -146,7 +156,7 @@
       popup.style.display = 'none';
     }
 
-
+    console.log(formCalc);
     inputTel.forEach((item) => {
       // Проверяем фокус
       item.addEventListener('focus', () => {

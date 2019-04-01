@@ -3,6 +3,7 @@ function modal() {
   //modal
 
   let headerBtn = document.querySelector('.header_btn'),
+    input = document.querySelectorAll('input'),
     overlay = document.querySelector('.popup_engineer'),
     close = document.getElementsByClassName('popup_close'),
     phoneLink = document.getElementsByClassName('phone_link'),
@@ -12,6 +13,11 @@ function modal() {
     glazingBtn = document.querySelectorAll('.glazing_price_btn'),
     popupCalcEnd = document.querySelector('.popup_calc_end');
 
+  function clearInput() {
+    input.forEach((item) => {
+      item.value = '';
+    });
+  };
 
   for (let j = 0; j < phoneLink.length; j++) {
     phoneLink[j].addEventListener('click', (e) => {
@@ -40,6 +46,16 @@ function modal() {
       profile.style.display = 'none';
       popupCalcEnd.style.display = 'none';
       hide();
+      clearInput();
+      formCalc = {
+        name: '',
+        tel: '',
+        balcony: 'Тип1',
+        width: '',
+        height: '',
+        type: 'Деревянное остекление',
+        checkbox: ''
+      };
     })
   }
 
@@ -79,6 +95,7 @@ function modal() {
   })();
 
 
+
   document.addEventListener('mousedown', function (e) {
     if (e.target.closest('.popup_form') === null) {
       hide();
@@ -90,6 +107,7 @@ function modal() {
     overlay.style.display = 'none';
     popup.style.display = 'none';
     document.body.style.overflow = '';
+    clearInput();
   }
 
 

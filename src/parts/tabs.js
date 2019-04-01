@@ -10,13 +10,20 @@ function tabs() {
   // вторая секция с табами
   let info2 = document.querySelector('.decoration_slider'),
     tabText2 = document.querySelectorAll('.decoration_slider-link'),
-    tabContent2 = document.querySelectorAll('.info-tabcontent-2'),
-    decorationDiv = document.querySelectorAll('.decoration_slider-div');
+    tabContent2 = document.querySelectorAll('.info-tabcontent-2');
+
 
   // табы в мод окне
   let info3 = document.querySelector('.balcon_icons'),
+    tabLinck = info3.querySelectorAll('.balcon_icons a'),
     tabImg3 = info3.querySelectorAll('.type_img'),
     tabContent3 = document.querySelectorAll('.big_img-item');
+
+  tabLinck.forEach((item) => {
+    item.addEventListener('click', (e) => {
+      e.preventDefault();
+    });
+  })
 
   function hideTabContent(a, b) {
     for (let i = a; i < b.length; i++) {
