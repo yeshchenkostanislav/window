@@ -16,7 +16,36 @@
       popupCalcEnd = document.querySelector('.popup_calc_end'),
       overlay = document.querySelector('.popup_engineer'),
       popup = document.querySelector('.popup'),
+      close = document.getElementsByClassName('popup_close'),
+      popupCalc = document.querySelector('.popup_calc'),
+      profile = document.querySelector('.popup_calc_profile'),
       statusMessage = document.createElement('div');
+
+    function clearInput() {
+      input.forEach((item) => {
+        item.value = '';
+      });
+    };
+
+    for (let i = 0; i < close.length; i++) {
+      close[i].addEventListener('click', () => {
+        popupCalc.style.display = 'none';
+        profile.style.display = 'none';
+        popupCalcEnd.style.display = 'none';
+        document.body.style.overflow = '';
+        formCalc = {
+          name: '',
+          tel: '',
+          balcony: 'Тип1',
+          width: '',
+          height: '',
+          type: 'Деревянное остекление',
+          checkbox: ''
+        };
+        clearInput();
+        console.log(formCalc);
+      })
+    }
 
     //полифилл для forEach
     (function () {
@@ -117,12 +146,6 @@
 
           })
         }
-
-        function clearInput() {
-          input.forEach((item) => {
-            item.value = '';
-          });
-        };
 
         postData(formData)
           .then(() => {
