@@ -94,7 +94,7 @@ function modal() {
     overlay.style.display = 'none';
     popup.style.display = 'none';
     document.body.style.overflow = '';
-    clearInput();
+    /*     clearInput(); */
   }
 
 

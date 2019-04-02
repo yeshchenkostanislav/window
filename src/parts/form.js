@@ -43,7 +43,6 @@
           checkbox: ''
         };
         clearInput();
-        console.log(formCalc);
       })
     }
 
@@ -113,15 +112,32 @@
 
     };
 
+    input.forEach((item) => {
+      item.addEventListener('change', () => {
+        if (item.getAttribute("name") == 'user_phone') {
+          formEls.tel = item.value;
+          console.log(formEls);
+        } else {
+          formEls.name = item.value;
+          console.log(formEls);
+        }
+      })
+    });
+
+    let formEls = {
+      name: '',
+      tel: ''
+    };
+
     form.forEach(function sendForm(item) {
 
       item.addEventListener('submit', (e) => {
         e.preventDefault();
         item.appendChild(statusMessage);
         let jSonString = JSON.stringify(formCalc);
-        let formData = new FormData(item);
+        let jSonString2 = JSON.stringify(formEls);;
 
-        function postData(data) {
+        function postData() {
           return new Promise((resolve, reject) => {
             let request = new XMLHttpRequest();
             request.open('POST', 'server.php');
@@ -141,13 +157,13 @@
             if (item.classList.contains('form-end')) {
               request.send(jSonString);
             } else {
-              request.send(data);
+              request.send(jSonString2);
             }
 
           })
         }
 
-        postData(formData)
+        postData(formEls)
           .then(() => {
             statusMessage.textContent = message.loading;
           })
@@ -163,7 +179,10 @@
               type: 'Деревянное остекление',
               checkbox: ''
             };
-            console.log(formCalc);
+            ormEls = {
+              name: '',
+              tel: ''
+            };
           })
           .catch(() => {
             statusMessage.innerHTML = message.failure;
@@ -179,7 +198,6 @@
       popup.style.display = 'none';
     }
 
-    console.log(formCalc);
     inputTel.forEach((item) => {
       // Проверяем фокус
       item.addEventListener('focus', () => {

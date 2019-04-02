@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.4.0",
-    "core-js": "^2.6.5"
+    "core-js": "^2.6.5",
+    "formdata-polyfill": "^3.0.17"
   }
 }
